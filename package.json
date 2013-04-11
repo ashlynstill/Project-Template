@@ -1,6 +1,6 @@
 {
-  "author": "John Perry: AJC Newsapp Team",
-  "name": "hospital_compare",
+  "author": "JMy Name: AJC Newsapp Team",
+  "name": "project_name",
   "version": "0.0.1",
   "devDependencies": {
     "grunt": "~0.4.1",
