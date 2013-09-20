@@ -6,7 +6,22 @@ module.exports = function(grunt) {
     copy: {
       target: {
         files: [
-          { expand: true, flatten: true, src: ['src/scripts/lib/*.js'], dest: 'build/scripts/lib/' },
+          {
+            expand: true,
+            src: ['src/scripts/lib/jquery/jquery.min.js'],
+            dest: 'build/scripts/lib/jquery/',
+            rename: function (dest, src) {
+              return dest + src.substring(src.lastIndexOf('/')).replace('.min','');
+            }
+          },
+          {
+            expand: true,
+            src: ['src/scripts/lib/underscore/underscore-min.js'],
+            dest: 'build/scripts/lib/underscore/',
+            rename: function (dest, src) {
+              return dest + src.substring(src.lastIndexOf('/')).replace('-min','');
+            }
+          },
           { expand: true, flatten: true, src: ['src/data/*'], dest: 'build/data/' }
         ]
       }
