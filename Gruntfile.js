@@ -21,7 +21,6 @@ module.exports = function(grunt) {
         curly: true,
         eqeqeq: true,
         latedef: true,
-        //quotmark: true,
         undef: true,
         unused: true,
         strict: true,
@@ -90,6 +89,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-s3');
 
   grunt.registerTask('default', ['copy','uglify','htmlmin','cssmin','s3']);
