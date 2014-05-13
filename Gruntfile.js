@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            src: ['src/scripts/lib/jquery.min.js'],
+            src: ['bower/jquery/dist/jquery.min.js'],
             dest: 'build/scripts/lib/',
             rename: function (dest, src) {
               return dest + src.substring(src.lastIndexOf('/')).replace('.min','');
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
           },
           // {
           //   expand: true,
-          //   src: ['src/scripts/lib/underscore/underscore-min.js'],
+          //   src: ['bower/underscore/underscore-min.js'],
           //   dest: 'build/scripts/lib/',
           //   rename: function (dest, src) {
           //     return dest + src.substring(src.lastIndexOf('/')).replace('-min','');
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
           // },
           // {
           //   expand: true,
-          //   src: ['src/scripts/lib/backbone/backbone-min.js'],
+          //   src: ['bower/backbone/backbone-min.js'],
           //   dest: 'build/scripts/lib/',
           //   rename: function (dest, src) {
           //     return dest + src.substring(src.lastIndexOf('/')).replace('-min','');
@@ -32,7 +32,7 @@ module.exports = function(grunt) {
           // },
           // {
           //   expand: true,
-          //   src: ['src/scripts/lib/d3/d3.min.js'],
+          //   src: ['bower/d3/d3.min.js'],
           //   dest: 'build/scripts/lib/',
           //   rename: function (dest, src) {
           //     return dest + src.substring(src.lastIndexOf('/')).replace('.min','');
@@ -40,14 +40,14 @@ module.exports = function(grunt) {
           // },
           // {
           //   expand: true,
-          //   src: ['src/scripts/lib/d3bb/build/d3bb.min.js'],
+          //   src: ['bower/d3bb/build/d3bb.min.js'],
           //   dest: 'build/scripts/lib/',
           //   rename: function (dest, src) {
           //     return dest + src.substring(src.lastIndexOf('/')).replace('.min','');
           //   }
           // },
           { expand: true, flatten: true, src: ['src/scripts/lib/underscore.js'], dest: 'build/scripts/lib/' },
-          { expand: true, flatten: true, src: ['src/scripts/lib/flatpage_stubs.js'], dest: 'build/scripts/lib/' },
+          { expand: true, flatten: true, src: ['src/scripts/lib/flatpage_stubs.js'], dest: 'build/scripts/lib/' }
         ]
       }
     },
@@ -177,8 +177,10 @@ module.exports = function(grunt) {
         },
         files: {
           "jquery.js": "jquery/dist/jquery.js",
-          "jquery.min.js": "jquery/dist/jquery.min.js",
           "underscore.js": "underscore/underscore.js"
+          // ,"backbone.js": "bower/backbone/backbone.js",
+          // "d3.js": "bower/d3/d3.min.js",
+          // "d3bb.js": "bower/d3bb/build/d3bb.js"
         }
       }
     }
