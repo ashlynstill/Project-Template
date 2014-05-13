@@ -26,9 +26,9 @@ module.exports = function(grunt) {
         ]
       }
     },
+
     jshint: {
       files: [
-        'Grintfile.js',
         'src/scripts/*.js'
       ],
       options: {
@@ -38,7 +38,6 @@ module.exports = function(grunt) {
         latedef: true,
         undef: true,
         unused: true,
-        strict: true,
         trailing: true,
         smarttabs: true,
         indent: 2,
@@ -48,6 +47,7 @@ module.exports = function(grunt) {
         }
       }
     },
+
     uglify: {
       options: {
         mangle: { except: ['d3', '_','$'] },
@@ -60,6 +60,19 @@ module.exports = function(grunt) {
         }
       }
     },
+
+    processhtml: {
+      options: {
+        process: true,
+        strip: true
+      },
+      build: {
+        files: {
+          'tmp/index.html': ['src/index.html']
+        }
+      }
+    },
+
     htmlmin: {
       build: {
         options: {
@@ -68,10 +81,11 @@ module.exports = function(grunt) {
           useShortDoctype: true
         },
         files: {
-          'build/index.html'    : 'src/index.html'
+          'build/index.html'    : 'tmp/index.html'
         }
       }
     },
+
     cssmin: {
       compress: {
         options: {
@@ -83,6 +97,19 @@ module.exports = function(grunt) {
         }
       }
     },
+
+    imagemin: {
+      jpg: {
+        options: { progressive: true },
+        files: [{
+          expand: true,
+          cwd: "src/images",
+          src: ["*.jpg"],
+          dest: "build/images"
+        }]
+      }
+    },
+
     s3: {
       key: "<%= aws.key %>",
       secret: "<%= aws.secret %>",
@@ -105,9 +132,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-processhtml');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-s3');
 
-  grunt.registerTask('default', ['copy','uglify','htmlmin','cssmin','s3']);
+
+  grunt.registerTask('default', ['copy','uglify','cssmin','processhtml', 'htmlmin','s3']);
+  grunt.registerTask('build', ['copy','uglify','cssmin','processhtml', 'htmlmin']);
+  grunt.registerTask('deploy', ['s3']);
+  grunt.registerTask('lint', ['jshint']);
 };
 
