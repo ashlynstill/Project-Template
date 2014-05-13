@@ -124,6 +124,37 @@ module.exports = function(grunt) {
         { src: 'build/data/*', dest: 'data/' },
         { src: 'build/style/*', dest: 'style/' }
       ]
+    },
+
+    bowercopy: {
+      options: {
+        // clean: true,
+        runBower: true,
+        report: true
+      },
+      test: {
+        options: {
+          destPrefix: 'test'
+        },
+        files: {
+          "boot.js": "jasmine/lib/jasmine-core/boot.js",
+          "console.js": "jasmine/lib/console/console.js",
+          "jasmine-html.js": "jasmine/lib/jasmine-core/jasmine-html.js",
+          "jasmine.css": "jasmine/lib/jasmine-core/jasmine.css",
+          "jasmine.js": "jasmine/lib/jasmine-core/jasmine.js",
+          "jasmine_favicon.png": "jasmine/images/jasmine_favicon.png",
+          "sinon.js": "sinon/lib/sinon.js"
+        }
+      },
+      lib: {
+        options: {
+          destPrefix: 'src/scripts/lib'
+        },
+        files: {
+          "jquery.js": "jquery/dist/jquery.js",
+          "underscore.js": "underscore/underscore.js"
+        }
+      }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -136,6 +167,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-s3');
+  grunt.loadNpmTasks('grunt-bowercopy');
 
 
   grunt.registerTask('default', ['copy','uglify','cssmin','processhtml', 'htmlmin','s3']);
