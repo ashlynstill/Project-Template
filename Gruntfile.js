@@ -47,7 +47,8 @@ module.exports = function(grunt) {
           //   }
           // },
           { expand: true, flatten: true, src: ['src/scripts/lib/underscore.js'], dest: 'build/scripts/lib/' },
-          { expand: true, flatten: true, src: ['src/scripts/lib/flatpage_stubs.js'], dest: 'build/scripts/lib/' }
+          { expand: true, flatten: true, src: ['src/scripts/lib/flatpage_stubs.js'], dest: 'build/scripts/lib/' },
+          { expand: true, flatten: true, src: ['src/data/*'], dest: 'build/data/' }
         ]
       }
     },
