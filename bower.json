@@ -2,11 +2,10 @@
   "name": "ACA Calculator",
   "dependencies": {
     "jquery": "latest",
-    "underscore": "latest"
-    // ,"d3": "latest",
-    // "backbone": "latest",
-    // "backbone.marionette": "latest",
-    // "d3bb": "https://jgperryajc@bitbucket.org/jgperryajc/d3bb.git"
+    "underscore": "latest",
+    "d3": "latest",
+    "backbone": "latest",
+    "d3bb": "https://jgperryajc@bitbucket.org/jgperryajc/d3bb.git"
   },
   "devDependencies": {
     "jasmine": "latest",

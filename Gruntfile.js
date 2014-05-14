@@ -14,38 +14,38 @@ module.exports = function(grunt) {
               return dest + src.substring(src.lastIndexOf('/')).replace('.min','');
             }
           },
-          // {
-          //   expand: true,
-          //   src: ['bower/underscore/underscore-min.js'],
-          //   dest: 'build/scripts/lib/',
-          //   rename: function (dest, src) {
-          //     return dest + src.substring(src.lastIndexOf('/')).replace('-min','');
-          //   }
-          // },
-          // {
-          //   expand: true,
-          //   src: ['bower/backbone/backbone-min.js'],
-          //   dest: 'build/scripts/lib/',
-          //   rename: function (dest, src) {
-          //     return dest + src.substring(src.lastIndexOf('/')).replace('-min','');
-          //   }
-          // },
-          // {
-          //   expand: true,
-          //   src: ['bower/d3/d3.min.js'],
-          //   dest: 'build/scripts/lib/',
-          //   rename: function (dest, src) {
-          //     return dest + src.substring(src.lastIndexOf('/')).replace('.min','');
-          //   }
-          // },
-          // {
-          //   expand: true,
-          //   src: ['bower/d3bb/build/d3bb.min.js'],
-          //   dest: 'build/scripts/lib/',
-          //   rename: function (dest, src) {
-          //     return dest + src.substring(src.lastIndexOf('/')).replace('.min','');
-          //   }
-          // },
+          {
+            expand: true,
+            src: ['bower/underscore/underscore-min.js'],
+            dest: 'build/scripts/lib/',
+            rename: function (dest, src) {
+              return dest + src.substring(src.lastIndexOf('/')).replace('-min','');
+            }
+          },
+          {
+            expand: true,
+            src: ['bower/backbone/backbone-min.js'],
+            dest: 'build/scripts/lib/',
+            rename: function (dest, src) {
+              return dest + src.substring(src.lastIndexOf('/')).replace('-min','');
+            }
+          },
+          {
+            expand: true,
+            src: ['bower/d3/d3.min.js'],
+            dest: 'build/scripts/lib/',
+            rename: function (dest, src) {
+              return dest + src.substring(src.lastIndexOf('/')).replace('.min','');
+            }
+          },
+          {
+            expand: true,
+            src: ['bower/d3bb/build/d3bb.min.js'],
+            dest: 'build/scripts/lib/',
+            rename: function (dest, src) {
+              return dest + src.substring(src.lastIndexOf('/')).replace('.min','');
+            }
+          },
           { expand: true, flatten: true, src: ['src/scripts/lib/underscore.js'], dest: 'build/scripts/lib/' },
           { expand: true, flatten: true, src: ['src/scripts/lib/flatpage_stubs.js'], dest: 'build/scripts/lib/' },
           { expand: true, flatten: true, src: ['src/data/*'], dest: 'build/data/' }
