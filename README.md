@@ -100,3 +100,26 @@ $ git flow init
 * **spec:** Test spec files goe here.
 * **src:** Your development code goes here.
 * **test:** Home for the code that runs your tests.
+
+##Resources and documentation
+
+* [Bower](http://bower.io/)
+* [Grunt](http://gruntjs.com/)
+  * [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint)
+  * [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy)
+  * [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify)
+  * [grunt-contrib-htmlmin](https://github.com/gruntjs/grunt-contrib-htmlmin)
+  * [grunt-contrib-cssmin](https://github.com/gruntjs/grunt-contrib-cssmin)
+  * [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat)
+  * [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-concat)
+  * [grunt-processhtml](https://github.com/dciccale/grunt-processhtml)
+  * [grunt-bowercopy](https://github.com/timmywil/grunt-bowercopy)
+  * [grunt-imagemin](https://github.com/gruntjs/grunt-contrib-imagemin)
+  * [grunt-s3](https://github.com/pifantastic/grunt-s3)
+* [git-flow](https://github.com/nvie/gitflow)
+  * ["A successful branching model" blog post](http://nvie.com/posts/a-successful-git-branching-model/)
+  * [Bitbucket git workflow tutorial](https://www.atlassian.com/git/workflows#!workflow-overview)
+  * [How Github does it (an alternative view)](http://scottchacon.com/2011/08/31/github-flow.html)
+* [Jasmine](http://jasmine.github.io/2.0/introduction.html)
+  * ["How do I Jasmin" tutorial](http://evanhahn.com/how-do-i-jasmine/)
+* [Sinon.js](http://sinonjs.org/)
