@@ -1,9 +1,9 @@
 A javbascript project template using bower for dependency management and grunt for workflow automation.
 
-##Beginning directory struction:
+##Beginning directory structure:
 
 ```
-├── build
+├── build/
 ├── config/
 │   └── aws.json.example
 ├── spec/
@@ -14,17 +14,19 @@ A javbascript project template using bower for dependency management and grunt f
 │   ├── images
 │   ├── index.html
 │   ├── scripts/
-│   │   ├── lib
+│   │   ├── lib/
 │   │   └── main.js
 │   └── style/
 │       ├── app.css
 │       └── skeleton.css
 ├── test/
+├── .bowerrc
+├── .gitignore
 ├── Gruntfile.js
-├── bower.json
-├── package.json
 ├── README.md
 ├── SpecRunner.html
+├── bower.json
+└── package.json
 ```
 
 ##Installation
@@ -39,7 +41,7 @@ Install grunt components:
 $ npm install
 ```
 
-Install dependencies:
+Create a aws.json file, then install dependencies:
 ```
 $ grunt bowercopy
 ```
@@ -55,4 +57,38 @@ $ git ci -m "initial commit"
 initialize git-flow
 ```
 $ git flow init
+```
+
+##REsulting directory structure:
+
+```
+├── build/
+│   └── minified, concatenates, optomized files ready to be deployed ...
+├── bower/
+│   └── bower package files ...
+├── config/
+│   └── aws.json.example
+├── spec/
+│   ├── MainSpec.js
+│   └── SpecHelper.js
+├── src/
+│   ├── Robots.txt
+│   ├── images
+│   ├── index.html
+│   ├── scripts/
+│   │   ├── lib/
+│   │   │   └── jquer.js, etc. ...
+│   │   └── main.js
+│   └── style/
+│       ├── app.css
+│       └── skeleton.css
+├── test/
+│   └── jasmine.js, sinon and other testing source files ...
+├── .bowerrc
+├── .gitignore
+├── Gruntfile.js
+├── README.md
+├── SpecRunner.html
+├── bower.json
+└── package.json
 ```
