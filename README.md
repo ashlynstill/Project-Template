@@ -59,7 +59,7 @@ initialize git-flow
 $ git flow init
 ```
 
-##REsulting directory structure:
+##Resulting directory structure:
 
 ```
 ├── build/
