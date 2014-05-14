@@ -3,14 +3,9 @@ A javbascript project template using bower for dependency management and grunt f
 ##Beginning directory struction:
 
 ...
-├── Gruntfile.js
-├── README.md
-├── SpecRunner.html
-├── bower.json
 ├── build
 ├── config/
 │   └── aws.json.example
-├── package.json
 ├── spec/
 │   ├── MainSpec.js
 │   └── SpecHelper.js
@@ -25,6 +20,11 @@ A javbascript project template using bower for dependency management and grunt f
 │       ├── app.css
 │       └── skeleton.css
 ├── test/
+├── Gruntfile.js
+├── bower.json
+├── package.json
+├── README.md
+├── SpecRunner.html
 ...
 
 ##Installation
