@@ -142,6 +142,7 @@ module.exports = function(grunt) {
       bucket: "<%= aws.bucket %>",
       access: "public-read",
       gzip: true,
+      gzipExclude: [".jpg",".png"],
       debug: false,
       upload: [
         { src: 'build/*.html', dest: '.' },
