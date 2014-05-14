@@ -41,11 +41,10 @@ Install grunt components:
 $ npm install
 ```
 
-Create a aws.json file, then install dependencies:
+Create an config/aws.json file with your s3 bucket credentials (or with empty strings, if that's not set up yet), then install dependencies:
 ```
 $ grunt bowercopy
 ```
-(Code to install Backbone, D3 and d3bb is included, but commented out in the Gruntfile copy settings and the index.html script links.)
 
 reinitialize git repository
 ```
@@ -92,3 +91,12 @@ $ git flow init
 ├── bower.json
 └── package.json
 ```
+
+###What goes in which directory
+
+* **build:** Minified, concatenated, optimized code waiting to be deployed
+* **bower:** Home for the bower package files. The important files will be copied to the src/scripts/lib/ directory by grunt-bowercopy
+* **config:** This is where the aws credentials json file resides, along with any other project config files you might need.
+* **spec:** Test spec files goe here.
+* **src:** Your development code goes here.
+* **test:** Home for the code that runs your tests.
