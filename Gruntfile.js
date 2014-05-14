@@ -134,7 +134,38 @@ module.exports = function(grunt) {
           src: ["*.jpg"],
           dest: "build/images"
         }]
+      },
+      png: {
+        options: { optimizationLevel: 3 },
+        files: [{
+          expand: true,
+          cwd: "src/images",
+          src: ["*.png"],
+          dest: "build/images"
+        }]
+      },
+      gif: {
+        options: { interlaced: true },
+        files: [{
+          expand: true,
+          cwd: "src/images",
+          src: ["*.gif"],
+          dest: "build/images"
+        }]
+      },
+      svg: {
+        options: {
+          removeViewBox: false,
+          removeEmptyAttrs: false
+        },
+        files: [{
+          expand: true,
+          cwd: "src/images",
+          src: ["*.svg"],
+          dest: "build/images"
+        }]
       }
+
     },
 
     s3: {
