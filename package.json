@@ -1,6 +1,6 @@
 {
   "author": "My Name: AJC Newsapp Team",
-  "name": "project_name",
+  "name": "my project",
   "version": "0.0.1",
   "devDependencies": {
     "grunt": "~0.4.1",
