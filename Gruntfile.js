@@ -47,6 +47,7 @@ module.exports = function(grunt) {
             }
           },
           { expand: true, flatten: true, src: ['src/scripts/lib/underscore.js'], dest: 'build/scripts/lib/' },
+          { expand: true, flatten: true, src: ['src/scripts/lib/json2.js'], dest: 'build/scripts/lib/' },
           { expand: true, flatten: true, src: ['src/scripts/lib/flatpage_stubs.js'], dest: 'build/scripts/lib/' },
           { expand: true, flatten: true, src: ['src/data/*'], dest: 'build/data/' }
         ]
@@ -165,7 +166,6 @@ module.exports = function(grunt) {
           dest: "build/images"
         }]
       }
-
     },
 
     s3: {
@@ -210,10 +210,11 @@ module.exports = function(grunt) {
         },
         files: {
           "jquery.js": "jquery/dist/jquery.js",
-          "underscore.js": "underscore/underscore.js"
-          // ,"backbone.js": "bower/backbone/backbone.js",
-          // "d3.js": "bower/d3/d3.min.js",
-          // "d3bb.js": "bower/d3bb/build/d3bb.js"
+          "underscore.js": "underscore/underscore.js",
+          "json2.js": "json2/json2.js",
+          "backbone.js": "bower/backbone/backbone.js",
+          "d3.js": "bower/d3/d3.min.js",
+          "d3bb.js": "bower/d3bb/build/d3bb.js"
         }
       }
     }
