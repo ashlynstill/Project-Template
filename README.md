@@ -15,5 +15,5 @@ Hosted here:
 
 ## Todo
 
--[ ] Get started
--[ ] Do some stuff
+- [ ] Get started
+- [ ] Do some stuff
