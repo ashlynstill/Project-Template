@@ -46,9 +46,16 @@ module.exports = function(grunt) {
               return dest + src.substring(src.lastIndexOf('/')).replace('.min','');
             }
           },
-          { expand: true, flatten: true, src: ['src/scripts/lib/underscore.js'], dest: 'build/scripts/lib/' },
-          { expand: true, flatten: true, src: ['src/scripts/lib/json2.js'], dest: 'build/scripts/lib/' },
-          { expand: true, flatten: true, src: ['src/scripts/lib/flatpage_stubs.js'], dest: 'build/scripts/lib/' },
+          {
+            expand: true,
+            flatten: true,
+            src: [
+              'src/scripts/lib/underscore.js',
+              'src/scripts/lib/json2.js',
+              'src/scripts/lib/flatpage_stubs.js'
+            ],
+            dest: 'build/scripts/lib/'
+          },
           { expand: true, flatten: true, src: ['src/data/*'], dest: 'build/data/' }
         ]
       }
@@ -232,8 +239,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bowercopy');
 
 
-  grunt.registerTask('default', ['copy','uglify','cssmin','processhtml', 'htmlmin','s3']);
-  grunt.registerTask('build', ['copy','uglify','cssmin','processhtml', 'htmlmin']);
+  grunt.registerTask('default', ['bowercopy','copy','uglify','cssmin','processhtml', 'htmlmin','s3']);
+  grunt.registerTask('build', ['bowercopy','copy','uglify','cssmin','processhtml', 'htmlmin']);
   grunt.registerTask('deploy', ['s3']);
   grunt.registerTask('lint', ['jshint']);
 };
