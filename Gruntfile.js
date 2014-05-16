@@ -224,24 +224,72 @@ module.exports = function(grunt) {
           "d3bb.js": "bower/d3bb/build/d3bb.js"
         }
       }
+    },
+
+    express: {
+      dev: {
+        options: {
+          hostname: '*',
+          port: 8000,
+          bases: 'src',
+          livereload: true,
+          showStack: true
+        }
+      },
+      test: {
+        options: {
+          hostname: '*',
+          port: 8080,
+          bases: '.',
+          livereload: true
+        }
+      }
+    },
+
+    open: {
+      dev: {
+        path: 'http://localhost:<%= express.dev.options.port %>'
+      },
+      test: {
+        path: 'http://localhost:<%= express.test.options.port %>/SpecRunner.html'
+      }
+    },
+
+    watch: {
+      dev: {
+        files: ['src/index.html','src/scripts/*.js','src/style/**/*.css'],
+        options: {
+          livereload: true
+        }
+      },
+      test: {
+        files: ['src/index.html','src/scripts/*.js','spec/*.js'],
+        options: {
+          livereload: true
+        }
+      }
     }
   });
+
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-s3');
   grunt.loadNpmTasks('grunt-bowercopy');
-
+  grunt.loadNpmTasks('grunt-express');
+  grunt.loadNpmTasks('grunt-open');
 
   grunt.registerTask('default', ['bowercopy','copy','uglify','cssmin','processhtml', 'htmlmin','s3']);
   grunt.registerTask('build', ['bowercopy','copy','uglify','cssmin','processhtml', 'htmlmin']);
   grunt.registerTask('deploy', ['s3']);
   grunt.registerTask('lint', ['jshint']);
+  grunt.registerTask('server', ['express:dev','open:dev','watch:dev','express-keepalive']);
+  grunt.registerTask('server:test', ['express:test','open:test','watch:test','express-keepalive']);
 };
 
