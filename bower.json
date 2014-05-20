@@ -2,6 +2,7 @@
   "name": "my project",
   "dependencies": {
     "jquery": "1.11.1",
+    "json2": "latest",
     "underscore": "latest",
     "d3": "latest",
     "backbone": "latest",
