@@ -57,6 +57,17 @@ module.exports = function(grunt) {
             dest: 'build/scripts/lib/'
           },
           { expand: true, flatten: true, src: ['src/data/*'], dest: 'build/data/' }
+          { expand: true, flatten: true, src: ['src/images/*.svg'], dest: 'build/images/' },
+          { expand: true, flatten: true, src: ['src/style/fonts/boomer/*'], dest: 'build/style/fonts/boomer/' },
+          { expand: true, flatten: true, src: ['src/style/fonts/boomer_cond/*'], dest: 'build/style/fonts/boomer_cond/' },
+          { expand: true, flatten: true, src: ['src/style/fonts/boomer_extracond/*'], dest: 'build/style/fonts/boomer_extracond/' },
+          { expand: true, flatten: true, src: ['src/style/fonts/boomerslab/*'], dest: 'build/style/fonts/boomerslab/' },
+          { expand: true, flatten: true, src: ['src/style/fonts/boomerslab_cond*'], dest: 'build/style/fonts/boomerslab_cond' },
+          { expand: true, flatten: true, src: ['src/style/fonts/boomerslab_extracond/*'], dest: 'build/style/fonts/boomerslab_extracond/' },
+          { expand: true, flatten: true, src: ['src/style/fonts/publico/*'], dest: 'build/style/fonts/publico/' },
+          { expand: true, flatten: true, src: ['bower/modernizr/modernizr.js'], dest: 'build/scripts/lib/' },
+          { expand: true, flatten: true, src: ['src/scripts/lib/flatpage_stubs.js'], dest: 'build/scripts/lib/' },
+          { expand: true, flatten: true, src: ['src/robots.txt'], dest: 'build/' }
         ]
       }
     },
@@ -127,8 +138,9 @@ module.exports = function(grunt) {
           report: 'gzip'
         },
         files: {
-          'build/style/app.css': ['src/style/app.css'],
-          'build/style/skeleton.css': ['src/style/skeleton.css']
+          'build/style/app.css'       : ['src/style/app.css'],
+          'build/style/normalize.css' : ['src/style/normalize.css' ],
+          'build/style/skeleton.css'  : ['src/style/skeleton.css']
         }
       }
     },
@@ -176,19 +188,18 @@ module.exports = function(grunt) {
     },
 
     s3: {
-      key: "<%= aws.key %>",
-      secret: "<%= aws.secret %>",
-      bucket: "<%= aws.bucket %>",
-      access: "public-read",
-      gzip: true,
-      gzipExclude: [".jpg",".png"],
-      debug: false,
-      upload: [
-        { src: 'build/*.html', dest: '.' },
-        { src: 'build/scripts/*', dest: 'scripts/' },
-        { src: 'build/scripts/lib/*', dest: 'scripts/lib/' },
-        { src: 'build/style/*', dest: 'style/' }
-      ]
+      options: {
+        accessKeyId: "<%= aws.key %>",
+        secretAccessKey: "<%= aws.secret %>",
+        bucket: "<%= aws.bucket %>",
+        access: "public-read",
+        gzip: true,
+        cache: false
+      },
+      build: {
+        cwd: "build/",
+        src: "**"
+      }
     },
 
     bowercopy: {
@@ -221,7 +232,8 @@ module.exports = function(grunt) {
           "json2.js": "json2/json2.js",
           "backbone.js": "bower/backbone/backbone.js",
           "d3.js": "bower/d3/d3.min.js",
-          "d3bb.js": "bower/d3bb/build/d3bb.js"
+          "d3bb.js": "bower/d3bb/build/d3bb.js",
+          "modernizr.js": "modernizr/modernizr.js"
         }
       }
     },
@@ -248,7 +260,8 @@ module.exports = function(grunt) {
 
     open: {
       dev: {
-        path: 'http://localhost:<%= express.dev.options.port %>'
+        path: 'http://localhost:<%= express.dev.options.port %>',
+        app: "Google Chrome"
       },
       test: {
         path: 'http://localhost:<%= express.test.options.port %>/SpecRunner.html'
@@ -280,7 +293,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-processhtml');
-  grunt.loadNpmTasks('grunt-s3');
+  grunt.loadNpmTasks('grunt-aws');
   grunt.loadNpmTasks('grunt-bowercopy');
   grunt.loadNpmTasks('grunt-express');
   grunt.loadNpmTasks('grunt-open');
