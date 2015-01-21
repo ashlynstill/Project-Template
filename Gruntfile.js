@@ -48,6 +48,14 @@ module.exports = function(grunt) {
           },
           {
             expand: true,
+            src: ['bower/foundation/js/foundation.min.js'],
+            dest: 'build/scripts/lib/',
+            rename: function (dest, src) {
+              return dest + src.substring(src.lastIndexOf('/')).replace('.min','');
+            }
+          },
+          {
+            expand: true,
             flatten: true,
             src: [
               'src/scripts/lib/underscore.js',
@@ -56,8 +64,9 @@ module.exports = function(grunt) {
             ],
             dest: 'build/scripts/lib/'
           },
+          { expand: true, flatten: true, src: ['bower/foundation/css/foundation.css'], dest: 'build/style/' },
           { expand: true, flatten: true, src: ['src/data/*'], dest: 'build/data/' },
-          { expand: true, flatten: true, src: ['src/images/*.svg'], dest: 'build/images/' },
+          { expand: true, flatten: true, src: ['src/images/*'], dest: 'build/images/' },
           { expand: true, flatten: true, src: ['src/style/fonts/boomer/*'], dest: 'build/style/fonts/boomer/' },
           { expand: true, flatten: true, src: ['src/style/fonts/boomer_cond/*'], dest: 'build/style/fonts/boomer_cond/' },
           { expand: true, flatten: true, src: ['src/style/fonts/boomer_extracond/*'], dest: 'build/style/fonts/boomer_extracond/' },
@@ -140,8 +149,8 @@ module.exports = function(grunt) {
         files: {
           'build/style/app.css'       : ['src/style/app.css'],
           'build/style/fonts.css'     : ['src/style/fonts.css'],
-          'build/style/normalize.css' : ['src/style/normalize.css' ],
-          'build/style/skeleton.css'  : ['src/style/skeleton.css']
+          'build/style/normalize.css' : ['src/style/normalize.css'],
+          'build/style/foundation.css': ['src/style/foundation.css']
         }
       }
     },
@@ -223,7 +232,7 @@ module.exports = function(grunt) {
           "sinon.js": "sinon/lib/sinon.js"
         }
       },
-      lib: {
+      lib_scripts: {
         options: {
           destPrefix: 'src/scripts/lib'
         },
@@ -234,7 +243,16 @@ module.exports = function(grunt) {
           "backbone.js": "bower/backbone/backbone.js",
           "d3.js": "bower/d3/d3.min.js",
           "d3bb.js": "bower/d3bb/build/d3bb.js",
-          "modernizr.js": "modernizr/modernizr.js"
+          "modernizr.js": "modernizr/modernizr.js",
+          "foundation.js": "bower/foundation/js/foundation.js",
+        }
+      },
+      lib_style: {
+        options: {
+          destPrefix: 'src/style'
+        },
+        files: {
+          "foundation.css": "bower/foundation/css/foundation.css"
         }
       }
     },

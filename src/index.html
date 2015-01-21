@@ -12,15 +12,26 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<!-- Mobile Specific Metas
+	<!-- Social Open Graph Metas: fill these out to make your fb sharing post
   ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:url" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:description" content="" />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-touch-fullscreen" content="yes">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
 	<!-- CSS
   ================================================== -->
 	<link rel="stylesheet" href="style/app.css">
   <link rel="stylesheet" href="style/normalize.css">
-	<link rel="stylesheet" href="style/skeleton.css">
+	<link rel="stylesheet" href="style/foundation.css">
   <link rel="stylesheet" href="style/fonts.css">
 
 	<!--[if lt IE 9]>
@@ -37,13 +48,14 @@
   <script src="scripts/lib/backbone.js"></script>
   <script src="scripts/lib/d3.js"></script>
   <script src="scripts/lib/d3bb.js"></script>
+  <script src="scripts/lib/foundation.js"></script>
 
   <!-- build:js scripts/main.js -->
 	<script src="scripts/main.js"></script>
   <!-- /build -->
 
   <script>
-  // Have to add flatpage_stubs.js above this script
+  // Have to add flatpage_stubs.js above this script -- only use this if project is on a flatpage in medley
   var i = 0;
   document.body.onclick = function(e){
     i += 1;
